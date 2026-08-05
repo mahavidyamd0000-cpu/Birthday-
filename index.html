@@ -143,10 +143,16 @@ heart.style.fontSize=(18+Math.random()*20)+"px";
 document.body.appendChild(heart);
 
 } 
+function checkCode(){
+
+let code=document.getElementById("code").value;
+
+if(code=="2703"){
+
 document.querySelector(".container").innerHTML=`
 
 <h1 style="font-size:45px;">
- Happy Birthday 🎁
+🎉 Happy Birthday 🎉
 </h1>
 
 <div style="font-size:120px;margin-top:20px;">
@@ -164,6 +170,12 @@ Continue
 </button>
 
 `;
+
+}else{
+
+document.getElementById("error").innerHTML="❌ Wrong Secret Code";
+
+}
 
 }
 
