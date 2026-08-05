@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6f5,#f2c4ff);
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+text-align:center;
+z-index:2;
+}
+
+h1{
+color:#ff1493;
+font-size:34px;
+margin-bottom:20px;
+text-shadow:0 0 12px hotpink;
+}
+
+input{
+padding:14px;
+width:220px;
+border:none;
+border-radius:30px;
+font-size:18px;
+text-align:center;
+outline:none;
+}
+
+button{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:#ff1493;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 20px hotpink;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#error{
+margin-top:15px;
+color:red;
+font-weight:bold;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:30px;
+animation:float 7s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+  </style>
+  </head>
+
+<body>
+
+<div class="container">
+
+<h1>🔐 Enter Unlock Code 🔐</h1>
+
+<input
+type="password"
+id="code"
+placeholder="Enter Secret Code">
+
+<br>
+
+<button onclick="checkCode()">
+Unlock 💖
+</button>
+
+<p id="error"></p>
+
+</div>
+
+<script>
+
+function checkCode(){
+
+let code=document.getElementById("code").value;
+
+if(code=="2703"){
+
+}else{
+
+document.getElementById("error").innerHTML="❌ Wrong Secret Code";
+
+}
+
+}
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+heart.style.fontSize=(18+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
+
+} 
+document.querySelector(".container").innerHTML=`
+
+<h1 style="font-size:45px;">
+ Happy Birthday 🎁
+</h1>
+
+<div style="font-size:120px;margin-top:20px;">
+🎂
+</div>
+
+<p style="margin-top:20px;
+font-size:22px;
+color:#ff1493;">
+Tap Continue 💖
+</p>
+
+<button onclick="showLetter()">
+Continue
+</button>
+
+`;
+
+}
+
+function showLetter(){
+
+document.querySelector(".container").innerHTML=`
+
+<h1>💌 A Letter For You 💌</h1>
+
+<div
+id="envelope"
+
+onclick="openLetter()"
+
+style="font-size:120px;
+cursor:pointer;
+margin-top:25px;">
+
+💌
+
+</div>
+
+<div
+id="letter"
+
+style="display:none;
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:20px;
+color:#444;
+line-height:1.8;">
+
+</div>
+
+`;
+
+} 
+function openLetter(){
+
+let letter=document.getElementById("letter");
+
+if(letter.style.display=="none"){
+
+letter.style.display="block";
+
+letter.innerHTML=`
+
+💖
+
+<br><br>
+
+Innaiku mattum happy ya irukama ella naalum happy ya irukanum... 🤌🏻🤗
+
+<br><br>
+
+Don’t think too much and ❤‍🩹 hurt yourself.
+
+<br><br>
+
+I pray 🪐 that you never feel sad or low again. 🪬
+
+<br><br>
+
+Keep smile Everytime ☺ because smile perfectly suits on you 🫵 ...!!
+
+<br><br>
+
+Don't love 🫀 yourself 🫣 that's my responsibility tooo..! 🌷❤
+
+`;
+
+document.getElementById("envelope").innerHTML="💖";
+
+}else{
+
+letter.style.display="none";
+
+document.getElementById("envelope").innerHTML="💌";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
